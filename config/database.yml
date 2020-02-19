@@ -1,0 +1,32 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: dev-rails6-sample
+  username: <%= ENV["API_DB_USER"] || "postgres" %>
+  password: <%= ENV["API_DB_PASS"] || "" %>
+  host: <%= ENV["API_DB_HOST"] || "localhost" %>
+  port: <%= ENV["API_DB_PORT"] || 5432 %>
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: test-rails6-sample
+  username: <%= ENV["API_DB_USER"] || "postgres" %>
+  password: <%= ENV["API_DB_PASS"] || "" %>
+  host: <%= ENV["API_DB_HOST"] || "localhost" %>
+  port: <%= ENV["API_DB_PORT"] || 5432 %>
+
+staging:
+  <<: *default
+  database: stg-rails6-sample
+
+production:
+  <<: *default
+  database: rails6-sample

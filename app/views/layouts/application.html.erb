@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails6 Sample</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <% # @link https://dev.to/vvo/a-rails-6-setup-guide-for-2019-and-2020-hf5 %>
+    <% #= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
